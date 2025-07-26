@@ -12,10 +12,7 @@ const SidebarLayout = () => {
       case 'applications':
         return <h2 className="text-2xl font-bold">📄 Applications Page</h2>;
       case 'settings':
-
         return <h2 className="text-2xl font-bold">⚙️ Settings Page</h2>;
-      case 'applied':
-        return <h2 className="text-2xl font-bold">Applied page</h2>;
       default:
         return <h2>Page Not Found</h2>;
     }
@@ -26,7 +23,7 @@ const SidebarLayout = () => {
       {/* Sidebar (left) */}
       <div className='flex flex-col' style={{
         width: '300px',
-        backgroundColor: 'black',
+        backgroundColor: 'lightblack',
         color: 'white',
         padding: '20px',
         height: '100vh',
@@ -51,11 +48,6 @@ const SidebarLayout = () => {
             onClick={() => setActivePage('settings')}
           >
             Settings
-          </button>
-          <button className=' className="block w-full text-3xl font-bold text-center px-2 py-1 mt-5 hover:bg-gray-700 rounded"' onClick={() => {
-            setActivePage('applied')
-          }}>
-            Applied
           </button>
         </div>
       </div>
