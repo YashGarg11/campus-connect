@@ -1,14 +1,19 @@
 
 // App.js
+import { Home, LogOut, Play, Settings } from 'lucide-react';
 import { useState } from 'react';
+import Home1 from './home';
+import Overview from './overview_student';
 
 const SidebarLayout = () => {
   const [activePage, setActivePage] = useState('overview');
 
   const renderPage = () => {
     switch (activePage) {
+      case 'home':
+        return <h2 className="text-2xl font-bold">{<Home1 />}</h2>;
       case 'overview':
-        return <h2 className="text-2xl font-bold">📊 Overview Page</h2>;
+        return <h2 className="text-2xl font-bold">{<Overview />}</h2>;
       case 'applications':
         return <h2 className="text-2xl font-bold">📄 Applications Page</h2>;
       case 'settings':
@@ -22,45 +27,67 @@ const SidebarLayout = () => {
   };
 
   return (
-    <div className="flex h-screen font-sans">
+    <div className="flex  h-screen font-sans">
       {/* Sidebar (left) */}
       <div className='flex flex-col' style={{
-        width: '300px',
-        backgroundColor: 'black',
+        width: '70px',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backdropFilter: 'blur(5px)',
         color: 'white',
-        padding: '20px',
-        height: '100vh',
+        padding: '25px',
+        margin: '10px',
+        minHeight: '60vh',
+        height: 'auto',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
+        position: 'fixed',
+        zIndex: 1,
+        borderRadius: '70px',
+        top: '25%',
+
 
       }}>
-        <h1 className="text-4xl font-bold">🎓 Dashboard</h1>
+
         <div className=''>
+          <button
+            className="block w-full text-3xl font-bold text-center mt-5 hover:bg-gray-700 rounded"
+            onClick={() => setActivePage('home')}
+          >
+            <Home size={24} className="inline mr-2" />
+
+
+          </button>
           <button
             className="block w-full text-3xl font-bold text-center  px-2 py-1 mt-5 hover:bg-gray-700 rounded"
             onClick={() => setActivePage('overview')}
           >
-            Overview
+            <Home size={24} className="inline mr-2" />
           </button>
           <button
             className="block w-full text-3xl font-bold text-center px-2 py-1 mt-5 hover:bg-gray-700 rounded"
             onClick={() => setActivePage('applications')}
           >
-            Applications
+            <Play size={24} className="inline mr-2" />
+
           </button>
           <button
             className="block w-full text-3xl font-bold text-center px-2 py-1 mt-5 hover:bg-gray-700 rounded"
             onClick={() => setActivePage('settings')}
           >
-            Settings
+            <Settings size={24} className="inline mr-2" />
           </button>
           <button className=' className="block w-full text-3xl font-bold text-center px-2 py-1 mt-5 hover:bg-gray-700 rounded"' onClick={() => {
             setActivePage('applied')
           }}>
-            Applied
+            <LogOut size={24} className="inline mr-2" />
+
           </button>
         </div>
       </div>
       {/* Main Content (right) */}
-      <div className="flex-1 bg-gray-100 p-8 overflow-y-auto">
+      <div className="flex-1 bg-gray-100  overflow-y-auto">
         {renderPage()}
       </div>
     </div>
