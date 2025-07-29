@@ -2,6 +2,7 @@
 // App.js
 import { Home, LogOut, Play, Settings } from 'lucide-react';
 import { useState } from 'react';
+import Applied from './Applied';
 import Home1 from './home';
 import Overview from './overview_student';
 
@@ -20,7 +21,7 @@ const SidebarLayout = () => {
 
         return <h2 className="text-2xl font-bold">⚙️ Settings Page</h2>;
       case 'applied':
-        return <h2 className="text-2xl font-bold">Applied page</h2>;
+        return <h2 className="text-2xl font-bold">{<Applied></Applied>}</h2>;
       default:
         return <h2>Page Not Found</h2>;
     }
